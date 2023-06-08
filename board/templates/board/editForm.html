@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 수정</title>
+</head>
+<body>
+    <h1>게시글 수정하기</h1>
+    <hr>
+    <form action="{% url 'board:editForm' list.id %}" method="post">
+        {% csrf_token %}
+        <p>제목 : <input type="text" name="title" value="{{ list.title }}"></p>
+        <p>작성자 : <input type="text" name="writer" value="{{ list.writer }}"></p>
+        <p>내용 :</p>
+        <textarea name="content" cols="50" rows="10">{{ list.content }}</textarea>
+        <p><input type="submit" value="수정하기"></p>
+    </form>
+</body>
+</html>
